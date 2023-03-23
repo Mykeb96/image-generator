@@ -64,7 +64,6 @@ body{
 }
 
 .image:hover{
-  
   transform: translateY(-25px);
 }
 
@@ -97,4 +96,60 @@ body{
 .loading{
   color: orange;
   font-size: 1.5rem;
+}
+
+.modal-background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.77);
+  display: flex;
+}
+
+.modal-container{
+  background: #DCDCDC;
+  height: 600px;
+  width: 560px;
+  margin: auto;
+  display: flex;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.modal-container > button{
+  width: fit-content;
+  margin: auto;
+}
+
+.modal-container > button:hover{
+  cursor: pointer;
+}
+
+.modal-img{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border-radius: 8px;
+  height: 512px;
+  width: 512px;
+}
+
+.close-button{
+  font-size: 1.5rem;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid orange;
+  width: fit-content;
+  margin: auto;
+  border-radius: 50%;
+  color: orange;
+}
+
+.close-button:hover{
+  cursor: pointer;
+  background: orange;
+  border: 1px solid white;
+  color: white;
 }

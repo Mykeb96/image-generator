@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { Configuration, OpenAIApi } from "openai";
+import Modal from '../components/Modal'
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
   const [userInput, setUserInput] = useState<string>('')
   const [images, setImages] = useState<Array<string>>([])
   const [tagline, setTagline] = useState<string>('')
+  const [selectedImage, setSelectedImage] = useState<string>('')
 
   // OpenAI config
   const configuration = new Configuration({
@@ -79,12 +81,14 @@ export default function Home() {
           </div>
           {images.length > 0 ? 
           <div className='images'>
-            {images.map((el: any, index: any) => <img src={el} key={index} className='image'/>)} 
+            {images.map((el: any, index: any) => <img src={el} key={index} onClick={() => setSelectedImage(el)} className='image'/>)} 
           </div>
           : 
           <p className='loading'>loading...</p>}
         </div>
             {tagline != '' ? <h2 className='tagline'>{tagline}</h2> : ''}
+
+            {selectedImage != '' ? <Modal imgSource={selectedImage} setSelectedImage={setSelectedImage}/> : null}
       </main>
     </>
   )
