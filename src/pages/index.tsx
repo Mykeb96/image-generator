@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { Configuration, OpenAIApi } from "openai";
 
+
 export default function Home() {
 
   // set state for user input, the image urls, and the tagline
@@ -11,7 +12,7 @@ export default function Home() {
 
   // OpenAI config
   const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: process.env.NEXT_PUBLIC_DB_KEY,
   });
   const openai = new OpenAIApi(configuration);
 
